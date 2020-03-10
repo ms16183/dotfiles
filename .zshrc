@@ -97,7 +97,8 @@ zle -N tetris
 
 # command not found.
 function command_not_found_handler(){
-  if [ -e `which cowsay` ]; then
+  which cowsay >/dev/null
+  if [ $? = 0 ]; then
     cowsay "$1 not found..."
   else
     echo "$1 not found..."
