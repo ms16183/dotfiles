@@ -3,7 +3,7 @@
 echo "setup..."
 echo ""
 
-files=(.zshrc .zsh_profile)
+files=$(find . -maxdepth 1 -name ".*" -type f)
 for f in ${files[@]}; do
   ln -snfv ~/dotfiles/"$f" ~
 done

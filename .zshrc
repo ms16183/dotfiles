@@ -20,6 +20,7 @@ alias bashprofile='vi ~/.bash_profile && source ~/.bash_profile'
 alias zshrc='vi ~/.zshrc && source ~/.zshrc'
 alias zshprofile='vi ~/.zsh_profile && source ~/.zsh_profile'
 alias vimrc='vi ~/.vimrc'
+alias .emacs='emacs ~/.emacs'
 
 # check sum
 alias sha1='openssl sha1'
@@ -110,3 +111,18 @@ export PS1="[%n@%m %~]$ "
 
 # initial dir
 cd ~/Documents/
+
+# zplugins
+source ~/.zplug/init.zsh
+zplug 'zplug/zplug', hook-build:'zplug --self-manage'
+zplug "zsh-users/zsh-autosuggestions"
+zplug "zsh-users/zsh-completions"
+zplug "chrissicool/zsh-256color"
+zplug "mrowa44/emojify", as:command
+if ! zplug check --verbose; then
+  printf "Install? [y/N]: "
+  if read -q; then
+    echo; zplug install
+  fi
+fi
+zplug load
