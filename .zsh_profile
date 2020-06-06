@@ -2,13 +2,18 @@ if [ -f ~/.zshrc ] ; then
 . ~/.zshrc
 fi
 
+export HOMEBREW_NO_AUTO_UPDATE=1
 PATH=$PATH:/opt/metasploit-framework/bin
 export PATH=$PATH:/opt/metasploit-framework/bin
 export PATH="/usr/local/sbin:$PATH"
 export PATH="/usr/local/opt/binutils/bin:$PATH"
 export PATH="/usr/local/opt/openssl/bin:$PATH"
 export PATH="$HOME/.cargo/bin:$PATH"
-export HOMEBREW_NO_AUTO_UPDATE=1
+
+# Install Ruby Gems to ~/gems
+export GEM_HOME=$HOME/gems
+export PATH=$HOME/gems/bin:$PATH
+
 #export PATH="/usr/local/opt/ncurses/bin:$PATH"
 
 export LANG=ja_JP.UTF-8
